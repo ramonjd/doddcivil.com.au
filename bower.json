@@ -1,0 +1,21 @@
+{
+  "name": "doddcivil.com.au",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ramonjd/doddcivil.com.au",
+  "authors": [
+    "Ramon <ramonjd@gmail.com>"
+  ],
+  "description": "Site code for doddcivil.com.au",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "~1.0.1"
+  }
+}
