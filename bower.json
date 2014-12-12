@@ -1,6 +1,6 @@
 {
   "name": "doddcivil.com.au",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/ramonjd/doddcivil.com.au",
   "authors": [
     "Ramon <ramonjd@gmail.com>"
@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "semantic": "~1.0.1"
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3",
+    "kube-scss": "*"
   }
 }

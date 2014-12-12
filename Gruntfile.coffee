@@ -2,6 +2,21 @@ module.exports = (grunt)->
   grunt.initConfig(
     pkg: grunt.file.readJSON('package.json')
     # task definitions
+    browserify:
+      src:
+        files:
+          'src/js/main.js' : ['src/js/main.coffee']
+        options:
+          transform : ['coffeeify']
+    compass:
+      vendor:
+        options:
+          sassDir: 'bower_components/kube-scss/scss/'
+          cssDir: 'src/css'
+      dev:
+        options:
+          sassDir: 'src/scss/'
+          cssDir: 'src/css'
     copy:
       main:
         files: [
@@ -9,51 +24,101 @@ module.exports = (grunt)->
             expand:true
             filter:'isFile'
             flatten:true
-            src: ['bower_components/jquery/dist/jquery.min.js',
-                  'bower_components/semantic/dist/semantic.min.js',
-                  'bower_components/semantic/dist/semantic.min.css']
-            dest: 'src/assets'
-          }
+            src: [
+              'bower_components/jquery/dist/jquery.js'
+              'bower_components/modernizr/modernizr.js'
+            ]
+            dest: 'src/js/'
+          },
           {
             expand:true
-            cwd: 'bower_components/semantic/dist/themes/default/',
+            cwd: 'bower_components/gumby/sass/'
             src : ['**']
-            dest: 'src/assets/themes/default/'
+            dest: 'src/sass/'
           }
         ]
-    clean:
-      src: ['src/assets']
     coffee:
+      compileTests:
+        options:
+          bare: true
+        files:
+          'tests/app.spec.js' : ['tests/*.coffee']
+    coffeelint:
+      src: ['src/js/*.coffee', 'tests/*.coffee']
+    clean:
+      src: ['src/css', 'src/js/*.js', 'src/*.html']
+    jade:
       compile:
         options:
-          bare:true
+          data: (dest, src)->
+            require './config/locals.json'
         files:
-          'server.js' : 'server.coffee'
-      jsx:
+          'src/index.html' : 'src/jade/index.jade'
+    karma:
+      unit:
+        configFile: 'config/karma.conf.js'
+    php:
+      dev:
         options:
-          bare:true
-        expand: true
-        flatten: false
-        cwd: 'react'
-        src: '**/*.coffee'
-        dest: 'react'
-        ext: '.jsx'
+          base: './src/'
+          keepalive: true
+          port: 3000
+          open: true
+    shell:
+      bowerinstall:
+        command: 'bower install'
     watch:
-      react:
-        files: 'react/**/*.coffee'
-        tasks: ['compile']
-
+      html:
+        files: 'src/jade/*.jade'
+        tasks: ['jade']
+      coffee:
+        files: 'src/js/*.coffee'
+        tasks: ['coffeelint', 'browserify']
+      scss:
+        files: 'src/scss/*.scss'
+        tasks: ['compass']
+      tests:
+        files: 'tests/*.coffee'
+        tasks: ['coffee:compileTests', 'karma']
+    concurrent:
+      start: [
+        'watch'
+        'php'
+        ]
+      options:
+        logConcurrentOutput: true
     )
+  
   # load modules
+  grunt.loadNpmTasks 'grunt-browserify'
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-jade'
+  grunt.loadNpmTasks 'grunt-karma'
+  grunt.loadNpmTasks 'grunt-php'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-shell'
+  grunt.loadNpmTasks 'grunt-concurrent'
+  grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+
   
   
   # register tasks
-  grunt.registerTask 'compile', ['coffee', 'browserify']
-  grunt.registerTask 'default', ['clean', 'copy']
+  grunt.registerTask 'test', ['compile', 'coffee:compileTests', 'karma']
+  grunt.registerTask 'compile', ['jade', 'browserify', 'compass']
+  grunt.registerTask 'default', [
+    'clean:src'
+    'shell:bowerinstall'
+    'copy'
+    'compile'
+    'coffeelint'
+    'coffee:compileTests'
+    'karma'
+    'concurrent'
+  ]
   
   # return grunt
   grunt
