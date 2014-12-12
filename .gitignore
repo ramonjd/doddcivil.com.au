@@ -2,5 +2,7 @@ node_modules
 bower_components
 src/css
 src/js/*.js
+tests/*.js
 src/*.html
 src/*.php
+.sass-cache/
