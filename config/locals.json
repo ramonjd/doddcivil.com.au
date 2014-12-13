@@ -7,19 +7,19 @@
     
     {
       "label" : "Home",
-      "link" : "/home"
+      "link" : "#home"
     },
     {
       "label" : "Services",
-      "link" : "/services"
+      "link" : "#services"
     },
     {
       "label" : "About us",
-      "link" : "/about"
+      "link" : "#about"
     },
     {
       "label" : "Contact",
-      "link" : "/contact"
+      "link" : "#contact"
     }
   
   ],
@@ -27,5 +27,17 @@
   "home" : {
     "title" : "Home",
     "heroImage" : "_bg_home_dummy.jpg"
+  },
+  
+  "about" : {
+    "title" : "About"
+  },
+  
+  "services" : {
+    "title" : "Services"
+  },
+  
+  "contact" : {
+    "title" : "Contact"
   }
 }

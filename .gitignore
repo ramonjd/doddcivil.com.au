@@ -1,8 +1,10 @@
 node_modules
 bower_components
+dist
 src/css
+src/less/bootstrap
 src/js/*.js
+src/js/*.map
 tests/*.js
 src/*.html
 src/*.php
-.sass-cache/

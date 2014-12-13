@@ -1,6 +1,10 @@
 section.home-hero
-  div.bg-image
-    div(style='background-image:url(/img/' + home.heroImage + ')')
-  div.units-row.units-padding
-    div.unit-100
+  div.section-image.fade.in
+    div.bg-image(style='background-image:url(/img/' + home.heroImage + ')')
+  div.content-container.text-center
+    p
+      span Test
+section.home-content.container
+  div.row
+    div.col-md-12
       h1= home.title

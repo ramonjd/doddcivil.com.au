@@ -1,6 +1,16 @@
+- var n = 0;
 header
-  nav.navbar.nav-fullwidth
-    ul
-      each val, index in navigation
-        li
-          a(href=val.link)= val.label
+  nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+    div.container
+      div.navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.main-nav-collapsable')
+          span.sr-only Toggle navigation
+          while n < 3
+            span.icon-bar
+            - n++
+        a.navbar-brand.text-uppercase(href='#') Brand
+      div.collapse.navbar-collapse.main-nav-collapsable 
+        ul.nav.navbar-nav
+          each val, index in navigation
+            li(data-target=val.link)
+              a.text-uppercase(href=val.link)= val.label

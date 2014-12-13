@@ -1,0 +1,121 @@
+// fonts
+@import url(http://fonts.googleapis.com/css?family=Cabin);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700);
+
+// bootstrap
+@import 'bootstrap/bootstrap.less';
+
+// custom
+
+@base-bg-color:#eee;
+@base-link-color:#ddd;
+@base-h1-color:#555;
+
+
+
+body {
+  font-family: 'Merriweather', 'Times New Roman', serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-size: 140%;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cabin', 'Arial', sans-serif;  
+  font-weight: 400;
+}
+
+header {
+  font-family: 'Cabin', 'Arial', sans-serif;
+  .navbar {
+    min-height:100px;
+    background-color:rgba(0,0,0,0.1);
+    border-color: rgba(255,255,255,0.1);
+    transition: all .3s ease-out;
+    &:hover {
+      border-color: rgba(255,255,255,0.4);
+      background-color:rgba(0,0,0,0.5);
+      .navbar-nav > li > a {
+        color: rgba(255,255,255,1);
+      }
+      .navbar-nav > li.active > a {
+        color: black;
+        background-color:white;
+      }
+    }
+    .navbar-brand {
+      color:white;
+      height:100px;
+      line-height: 2.4;
+      width:200px;
+      font-size: 3rem;
+      &:hover, &:visited {
+        color:white;
+      }
+    }
+    
+    .navbar-nav > li.active > a{
+    
+      background-color:rgba(255,255,255,0.6);
+    }
+    
+    .navbar-nav > li > a {
+      color: rgba(255,255,255,0.7);
+      height:100px;
+      line-height: 5;
+      padding-left: 2.6rem;
+      padding-right: 2.6rem;
+      &:hover {
+        color: rgba(255,255,255,0.7);
+      }
+    } 
+  } 
+}
+
+#main {
+
+}
+
+#home {
+  .home-hero {
+    position:relative;
+    height: 900px;
+    overflow:hidden;
+    color: white;
+    .bg-image {
+      height:900px;
+    }
+    .content-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 85%;
+      z-index: 2;
+      padding: 10rem;
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.section-container {
+
+    min-height:500px;
+
+}
+
+.section-image {
+  background-color:#111;
+  .bg-image {
+    width: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 57%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    .opacity(0.5);
+  }
+}
