@@ -4,6 +4,7 @@ dist
 src/css
 src/less/bootstrap
 src/js
+src/fonts
 tests/*.js
 src/*.html
 src/*.php
