@@ -19,9 +19,9 @@ module.exports = (grunt)->
           map: true
         src: 'src/css/base.css'
     browserify:
-      src:
+      dev:
         files:
-          'src/js/main.js' : ['src/js/main.coffee']
+          'src/js/main.js' : ['src/coffee/main.coffee']
         options:
           transform : ['coffeeify']
     less:
@@ -33,11 +33,33 @@ module.exports = (grunt)->
         files: [
           {
             expand:true
+            filter:'isFile'
+            flatten:true
+            src: [
+              'bower_components/jquery/dist/jquery.js'
+              'bower_components/jquery-touchswipe/jquery.touchSwipe.js'
+              'bower_components/bootstrap/dist/js/bootstrap.js'
+              'bower_components/modernizr/modernizr.js'
+              'bower_components/velocity/velocity.js'
+              'bower_components/velocity/velocity.ui.js'
+            ]
+            dest: 'src/js/'
+          }
+          {
+            expand:true
             cwd: 'bower_components/bootstrap/less/'
             src: [
               '**'
             ]
             dest: 'src/less/bootstrap/'
+          }
+          {
+            expand:true
+            cwd: 'bower_components/bootstrap/fonts/'
+            src: [
+              '**'
+            ]
+            dest: 'src/fonts/'
           }
         ]
     coffee:
@@ -47,13 +69,12 @@ module.exports = (grunt)->
         files:
           'tests/app.spec.js' : ['tests/*.coffee']
     coffeelint:
-      src: ['src/js/*.coffee', 'tests/*.coffee']
+      src: ['src/coffee/*.coffee', 'tests/*.coffee']
     clean:
       src: [
         'src/css'
         'src/less/bootstrap'
-        'src/js/*.js'
-        'src/js/*.map'
+        'src/js'
         'src/*.html'
       ]
     cssmin:
@@ -67,7 +88,7 @@ module.exports = (grunt)->
             src: 'base.css'
             dest: 'dist/css/'
           }
-        ]      
+        ]
     jade:
       compile:
         options:
@@ -88,26 +109,13 @@ module.exports = (grunt)->
     shell:
       bowerinstall:
         command: 'bower install'
-    uglify:
-      dev:
-        options:
-          mangle: false
-          sourceMap: true
-          beautify: true
-        files:
-          'src/js/bundle.js' : [
-            'bower_components/modernizr/modernizr.js'
-            'bower_components/jquery/dist/jquery.js'
-            'bower_components/bootstrap/dist/js/bootstrap.js'
-            'src/js/main.js'
-          ]
     watch:
       html:
         files: 'src/jade/*.jade'
         tasks: ['jade']
       coffee:
-        files: 'src/js/*.coffee'
-        tasks: ['coffeelint', 'browserify', 'uglify:dev']
+        files: 'src/coffee/*.coffee'
+        tasks: ['coffeelint', 'browserify']
       less:
         files: 'src/less/*.less'
         tasks: ['less', 'autoprefixer']
@@ -147,7 +155,6 @@ module.exports = (grunt)->
   grunt.registerTask 'compile', [
     'jade'
     'browserify'
-    'uglify:dev'
     'less'
     'autoprefixer'
   ]

@@ -18,6 +18,8 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "modernizr": "~2.8.3",
-    "bootstrap": "~3.3.1"
+    "bootstrap": "~3.3.1",
+    "velocity": "~1.1.0",
+    "jquery-touchswipe": "~1.6.6"
   }
 }

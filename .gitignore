@@ -3,8 +3,7 @@ bower_components
 dist
 src/css
 src/less/bootstrap
-src/js/*.js
-src/js/*.map
+src/js
 tests/*.js
 src/*.html
 src/*.php
