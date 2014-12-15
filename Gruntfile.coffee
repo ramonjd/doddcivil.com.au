@@ -29,7 +29,7 @@ module.exports = (grunt)->
         files:
           'src/css/base.css' : 'src/less/base.less'
     copy:
-      main:
+      dev:
         files: [
           {
             expand:true
@@ -62,6 +62,42 @@ module.exports = (grunt)->
             dest: 'src/fonts/'
           }
         ]
+      dist:
+        files: [
+          {
+            expand:true
+            cwd: 'bower_components/bootstrap/fonts/'
+            src: [
+              '**'
+            ]
+            dest: 'dist/fonts/'
+          }
+          {
+            expand:true
+            cwd: 'src/img/'
+            src: [
+              '**'
+            ]
+            dest: 'dist/img/'
+          }
+          {
+            expand:true
+            cwd: 'src/api/'
+            src: [
+              '**'
+            ]
+            dest: 'dist/api/'
+          }
+          {
+            expand:true
+            filter:'isFile'
+            flatten:true
+            src: [
+              'src/*.html'
+            ]
+            dest: 'dist/'
+          }
+        ]
     coffee:
       compileTests:
         options:
@@ -77,9 +113,10 @@ module.exports = (grunt)->
         'src/js'
         'src/*.html'
       ]
+      dist: [
+        'dist'
+      ]
     cssmin:
-      options:
-        ext: '.min.css'
       prod:
         files:[
           {
@@ -109,6 +146,11 @@ module.exports = (grunt)->
     shell:
       bowerinstall:
         command: 'bower install'
+    uglify:
+      options:
+        mangle: false
+      dist:
+        files: 'dist/js/main.js': ['src/js/main.js']
     watch:
       html:
         files: 'src/jade/*.jade'
@@ -151,23 +193,39 @@ module.exports = (grunt)->
   
   
   # register tasks
-  grunt.registerTask 'test', ['compile', 'coffee:compileTests', 'karma']
+  grunt.registerTask 'server', [
+    'concurrent'
+  ]
+  grunt.registerTask 'test', [
+    'compile'
+    'coffee:compileTests'
+    'karma'
+  ]
   grunt.registerTask 'compile', [
     'jade'
     'browserify'
     'less'
     'autoprefixer'
   ]
-  grunt.registerTask 'default', [
+  grunt.registerTask 'dev', [
     'clean:src'
     'shell:bowerinstall'
-    'copy'
+    'copy:dev'
     'compile'
     'coffeelint'
     'coffee:compileTests'
     'karma'
-    'concurrent'
   ]
-  
+  grunt.registerTask 'default', [
+    'dev'
+    'server'
+  ]
+  grunt.registerTask 'dist', [
+    'dev'
+    'clean:dist'
+    'copy:dist'
+    'uglify'
+    'cssmin'
+  ]
   # return grunt
   grunt

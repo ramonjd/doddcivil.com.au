@@ -3,6 +3,8 @@ doddcivil.com.au
 
 Simple static site using jQuery and semantic-ui framework.
 
+PHP must be installed
+
 npm install
 
 
@@ -24,3 +26,6 @@ http://labs.rampinteractive.co.uk/touchSwipe/demos/Single_swipe.html
 
 http://getbootstrap.com/css/#images-responsive
 
+http://codyhouse.co/gem/animate-svg-icons-with-css-and-snap/
+
+http://davidwalsh.name/svg-animation
