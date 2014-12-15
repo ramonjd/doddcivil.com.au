@@ -97,6 +97,15 @@ module.exports = (grunt)->
             ]
             dest: 'dist/'
           }
+          {
+            expand:true
+            filter:'isFile'
+            flatten:true
+            src: [
+              'bower_components/modernizr/modernizr.js'
+            ]
+            dest: 'dist/js/'
+          }
         ]
     coffee:
       compileTests:
@@ -117,6 +126,8 @@ module.exports = (grunt)->
         'dist'
       ]
     cssmin:
+      options:
+        keepSpecialComments: 0
       prod:
         files:[
           {
@@ -140,6 +151,12 @@ module.exports = (grunt)->
       dev:
         options:
           base: './src/'
+          keepalive: true
+          port: 3000
+          open: true
+      dist:
+        options:
+          base: './dist/'
           keepalive: true
           port: 3000
           open: true
@@ -167,7 +184,7 @@ module.exports = (grunt)->
     concurrent:
       start: [
         'watch'
-        'php'
+        'php:dev'
         ]
       options:
         logConcurrentOutput: true
@@ -226,6 +243,7 @@ module.exports = (grunt)->
     'copy:dist'
     'uglify'
     'cssmin'
+    'php:dist'
   ]
   # return grunt
   grunt

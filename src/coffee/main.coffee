@@ -43,7 +43,6 @@ $ ()->
   
   # scroll page onclick/touch
   $('.navbar-nav a').on clickEvent, (e)->
-    e.preventDefault()
     toggleNav 'hide'
     goto = $(this).attr 'href'
     $(goto)
