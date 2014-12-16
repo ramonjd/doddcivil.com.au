@@ -1,16 +1,57 @@
-doddcivil.com.au
-================
+[doddcivil.com.au](https://github.com/ramonjd/doddcivil.com.au) 
+===================
 
-Simple static site using jQuery and semantic-ui framework.
+## Setup
 
-PHP must be installed
+PHP must be installed and in your system PATH.
 
+
+```
+sudo npm install -g grunt karma casperjs phantomjs
 npm install
+
+```
+
+Then, to build and start the dev webserver, run:
+
+```
+grunt
+
+```
+
+## Stack
+
+* Modernizr
+* JQuery (and jQuery TouchSwipe)
+* Velocity
+* Bootstrap
+
+## Tests
+
+### Unit tests
+
+Testing with Jasmine/PhantomJS. Unit tests run automatically when you build the project. Otherwise, run:
+
+```
+grunt test
+
+```
+
+### Functional Tests
+
+After a lot of headaches, [CasperJS](http://docs.casperjs.org/en/latest/) seemed the fastest way to get e2e tests up and running. It uses Phantom JS.
+
+Make sure the dev server is running, then in a new terminal, run:
+
+```
+grunt shell:e2e
+
+```
+
+
 
 
 CSS Framework
-http://imperavi.com/kube/css/navigation/#
-
 https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-1-559d4e805cda
 
 http://line25.com/articles/20-great-examples-of-subtle-motion-in-web-design
