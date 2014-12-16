@@ -103,7 +103,7 @@ module.exports = (grunt)->
         options:
           bare: true
         files:
-          'tests/app.spec.js' : ['tests/*.coffee']
+          'tests/app.spec.js' : ['tests/*.spec.coffee']
     coffeelint:
       src: ['src/coffee/*.coffee', 'tests/*.coffee']
     clean:
@@ -146,6 +146,8 @@ module.exports = (grunt)->
     shell:
       bowerinstall:
         command: 'bower install'
+      e2e:
+        command: 'node_modules/casperjs/bin/casperjs test tests/app.e2e.coffee'
     uglify:
       options:
         mangle: false
@@ -189,7 +191,6 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-autoprefixer'
-
   
   
   # register tasks
