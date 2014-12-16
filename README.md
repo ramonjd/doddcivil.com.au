@@ -7,7 +7,7 @@ PHP must be installed and in your system PATH.
 
 
 ```
-sudo npm install -g grunt karma casperjs phantomjs
+sudo npm install -g grunt karma phantomjs
 npm install
 
 ```
