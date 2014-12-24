@@ -8,7 +8,9 @@ header
           while n < 3
             span.icon-bar
             - n++
-        a.navbar-brand.text-uppercase(href='#') Brand
+        a.navbar-brand.text-uppercase(href='/')
+          img.img-responsive(src='img/dodd-civil-consultancy-logo.png', alt= page.title)
+          strong!= page.logo
       div.collapse.navbar-collapse.main-nav-collapsable 
         ul.nav.navbar-nav
           each val, index in navigation

@@ -1,9 +1,8 @@
 section.home-hero
   div.section-image.fade.in
     div.bg-image(style='background-image:url(/img/' + home.heroImage + ')')
-  div.content-container.text-center
-    p
-      span Test
+  div.content-container.text-center.center-block
+    p.title!= home.hero.title
 section.home-content.container
   div.row
     div.col-md-12

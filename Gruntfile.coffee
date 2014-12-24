@@ -112,7 +112,7 @@ module.exports = (grunt)->
         options:
           bare: true
         files:
-          'tests/app.spec.js' : ['tests/*.spec.coffee']
+          'tests/main.spec.js' : ['tests/*.spec.coffee']
     coffeelint:
       src: ['src/coffee/*.coffee', 'tests/*.coffee']
     clean:

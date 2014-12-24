@@ -5,12 +5,13 @@ html(lang='en')
   body
     include ./_header.jade
     main(id='main', role='main')
-      div#home.section-container
+      div#home.section-container.clearfix
         include ./_home.jade
-      div#services.section-container
+      div#services.section-container.clearfix
         include ./_services.jade
-      div#about.section-container
+      div#about.section-container.clearfix
         include ./_about.jade
-      div#contact.section-container
+      div#contact.section-container.clearfix
         include ./_contact.jade
-    include ./_footer.jade
+      div#footer.section-container.clearfix  
+        include ./_footer.jade

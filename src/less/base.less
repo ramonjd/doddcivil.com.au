@@ -10,11 +10,15 @@
 @base-bg-color:#eee;
 @base-link-color:#ddd;
 @base-h1-color:#555;
+@primary-color:#fec027;
+@font-sans-serif:'Cabin', 'Arial', sans-serif;
+@font-serif:'Merriweather', 'Times New Roman', serif;
 
 
 
 body {
-  font-family: 'Merriweather', 'Times New Roman', serif;
+  -webkit-backface-visibility: hidden;
+  font-family: @font-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   font-size: 140%;
@@ -22,33 +26,42 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cabin', 'Arial', sans-serif;  
+  font-family: @font-sans-serif;  
   font-weight: 400;
 }
 
+button.btn-default {
+  background-color: @primary-color;
+  font-family: @font-sans-serif;
+  text-transform: uppercase;
+  &:hover {
+    background-color:black;
+    color:white;
+  }
+}
+
 header {
-  font-family: 'Cabin', 'Arial', sans-serif;
+  font-family: @font-sans-serif; 
   .navbar {
-    background-color:rgba(0,0,0,0.1);
+    background-color:rgba(0,0,0,0.8);
     border-color: rgba(255,255,255,0.1);
     transition: all .3s ease-out;
     margin:0;
     &:hover {
       border-color: rgba(255,255,255,0.4);
-      background-color:rgba(0,0,0,0.5);
-      .navbar-nav > li > a {
-        color: rgba(255,255,255,1);
-      }
-      .navbar-nav > li.active > a {
-        color: black;
-        background-color:white;
-      }
+      background-color:rgba(0,0,0,0.9);
     }
     
     .navbar-brand {
       color:white;
-      &:hover, &:visited {
-        color:white;
+      position:relative;
+      padding:10px 15px;
+      img {
+        height:100%;
+      }
+      strong {
+        position:relative;
+        top:-9999px;
       }
     }
     
@@ -56,16 +69,17 @@ header {
       margin-top:0;
       margin-bottom:0;
       li > a {
-        color: rgba(255,255,255,0.7);
         transition: all .3s ease-out;
+        color:white;
         &:hover {
-          color: rgba(0,0,0,0.7);
-          background-color:rgba(255,255,255,0.6);
+          border-bottom:2px solid white;
+          color:white;
         }
       } 
       
       li.active > a {
-        background-color:rgba(255,255,255,0.6);
+        color:black;
+        background-color:white;
       }
     } 
   }
@@ -73,6 +87,25 @@ header {
 
 .section-container {
   min-height:600px;
+  position:relative;
+  padding-bottom:2rem;
+  h1 {
+    font-size: 4.5rem;
+    margin:4.5rem 0;
+    letter-spacing: .2rem;
+  }
+  .to-top {
+    font-family: @font-sans-serif;
+    position:absolute;
+    bottom:1rem;
+    width:100%;
+    left:0;
+    a {
+      text-decoration: none;
+      font-size:2.1rem;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .section-image {
@@ -91,6 +124,7 @@ header {
 }
 
 #home {
+  background-color:#e5e5e5;
   .home-hero {
     position:relative;
     overflow:hidden;
@@ -109,20 +143,31 @@ header {
       padding: 10rem;
       font-size: 3.5rem;
     }
+    .title {
+      font-family: @font-sans-serif; 
+      text-transform: uppercase;
+      span {
+        color:@primary-color;
+      }
+    }
   }
 }
 
 #services {
+  background-color:#ededed;
   img {
     display: none;
   }
 }
 
+#about {
+  background-color:#f4f4f4;
+}
+
 #footer {
   background:black;
-  div {
-    min-height: 400px;
-  } 
+  min-height: 400px;
+  padding:4em 0;
 }
 
 // media queries
@@ -133,12 +178,13 @@ header {
     .navbar {
       min-height:100px;
     }
+    
     .navbar-brand {
-      font-size: 3rem;
-      line-height: 2.4;
       width: 200px;
       height:100px;
+      padding:20px;
     }
+    
     .navbar-nav > li > a {
       height:100px;
       padding-left: 2.6rem;
