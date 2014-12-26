@@ -87,7 +87,10 @@ $ ()->
   $nav.swipe
     swipeDown:()->
       toggleNav 'show'
-      
+
+  # accordian onclick/touch
+  $('#accordian .panel-heading a').on clickEvent, (e)->
+    e.preventDefault()
       
 # http://www.smashingmagazine.com/2014/06/18/faster-ui-animations-with-velocity-js/
 # http://css-tricks.com/improving-ui-animation-workflow-velocity-js

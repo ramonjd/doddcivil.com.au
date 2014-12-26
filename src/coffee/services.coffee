@@ -4,7 +4,7 @@ Services =
   refresh: ()->
     if @loaded is false
       @loaded=true
-      @$container.find('img').velocity 'transition.slideLeftIn',
+      @$container.find('.slide-images img').velocity 'transition.slideLeftIn',
         stagger : 150
     
 

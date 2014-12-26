@@ -2,7 +2,7 @@ section.services-content.container
   div.row
     div.col-md-12
       h1= services.title
-  div.row
+  div.row.slide-images.clearfix
     div.col-md-4
       img.img-rounded.img-responsive(alt='', src='http://placekitten.com/g/350/310')
     div.col-md-4
@@ -10,7 +10,49 @@ section.services-content.container
     div.col-md-4
       img.img-rounded.img-responsive(alt='', src='http://placekitten.com/g/350/310')
   
-  div.row.text-right.to-top
-    a(href= page.top.link)
-      span.glyphicon.glyphicon-arrow-up(aria-hidden='true')
-      span= page.top.label
+  div.row
+    div.col-md-12
+      div.panel-group#accordion(role='tablist', aria-multiselectable='true')
+        div.panel.panel-default
+          div.panel-heading#panel-heading-one(role='tab')
+            h4.panel-title
+              a(data-toggle='collapse', data-parent='#accordion', href='#panel-collapse-one', aria-expanded='true', aria-controls='panel-collapse-one') Collapsible Group Item #1
+          div#panel-collapse-one.panel-collapse.collapse.in(role='tabpanel', aria-labeledby='panel-heading-one')
+            div.panel-body
+              div.media
+                a.media-left(href='#')
+                  img(src='http://placekitten.com/g/64/64', alt='...')
+                div.media-body
+                  h4.media-heading Media heading
+                  p.
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+
+        div.panel.panel-default
+          div.panel-heading#panel-heading-two(role='tab')
+            h4.panel-title
+              a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#panel-collapse-two', aria-expanded='false', aria-controls='panel-collapse-two') Collapsible Group Item #2
+          div#panel-collapse-two.panel-collapse.collapse(role='tabpanel', aria-labeledby='panel-heading-two')
+            div.panel-body
+              div.media
+                a.media-left(href='#')
+                  img(src='http://placekitten.com/g/64/64', alt='...')
+                div.media-body
+                  h4.media-heading Media heading
+                  p.
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+
+        div.panel.panel-default
+          div.panel-heading#panel-heading-three(role='tab')
+            h4.panel-title
+              a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#panel-collapse-three', aria-expanded='false', aria-controls='panel-collapse-three') Collapsible Group Item #3
+          div#panel-collapse-three.panel-collapse.collapse(role='tabpanel', aria-labeledby='panel-heading-three')
+            div.panel-body
+              div.media
+                a.media-left(href='#')
+                  img(src='http://placekitten.com/g/64/64', alt='...')
+                div.media-body
+                  h4.media-heading Media heading
+                  p.
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            
+  include ./_module.top.jade

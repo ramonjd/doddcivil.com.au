@@ -1,9 +1,25 @@
-section.home-hero
+section.home-hero.clearfix
   div.section-image.fade.in
     div.bg-image(style='background-image:url(/img/' + home.heroImage + ')')
   div.content-container.text-center.center-block
-    p.title!= home.hero.title
-section.home-content.container
-  div.row
-    div.col-md-12
-      h1= home.title
+    p.lead!= home.hero.title
+    div.row.promos
+      div.col-md-4
+        div.glyphicon.glyphicon-leaf(aria-hidden='true')
+        p 23,455 Test
+      div.col-md-4
+        div.glyphicon.glyphicon-wrench(aria-hidden='true')
+        p Test something
+      div.col-md-4
+        div.glyphicon.glyphicon-tasks(aria-hidden='true')
+        p Oh, another...
+        
+section.home-content.clearfix
+  div.container
+    div.row
+      div.col-md-6.col-xs-12
+        p.
+          Nulla pharetra, elit quis interdum dapibus, justo urna dignissim tellus, a tempus lectus est vel felis. Vestibulum nunc ante, bibendum nec risus sed, mattis convallis magna. Suspendisse non aliquet tellus.
+      div.col-md-6.col-xs-12
+        p.
+          Nulla pharetra, elit quis interdum dapibus, justo urna dignissim tellus, a tempus lectus est vel felis. Vestibulum nunc ante, bibendum nec risus sed, mattis convallis magna. Suspendisse non aliquet tellus.
