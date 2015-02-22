@@ -51,10 +51,11 @@ header {
       background-color:rgba(0,0,0,0.9);
     }
     .navbar-brand {
+      float:left;
       transition: all .4s ease-out;
       color:white;
       position:relative;
-      padding:10px 15px;
+      padding: 5px 15px;
       display: inline-block;
       overflow: hidden;
       img {
@@ -72,14 +73,14 @@ header {
       margin-top:10px;
       margin-bottom:10px;
       color:#999;
+      position:absolute;
+      right:-9999px; 
     }
     .vcard {
-      position:absolute;
-      right:-9999px;      
+      width:285px;     
       .org {
         color: #c1c1c1;
       }
-      width:275px;
       text-align: right;  
       .title, address {
         position:absolute;
@@ -127,13 +128,20 @@ header {
       text-transform: uppercase;
     }
   }
-  
-  .home-content, .about-content, .contact-content {
-    p {
+  .home-content, 
+  .services-content, 
+  .about-content, 
+  .contact-content {
+    p, 
+    .vcard, 
+    .well {
       font-size:2rem;
     }
   }
   
+  .row > div {
+    margin-bottom:2rem;
+  }
 }
 
 .section-image {
@@ -162,6 +170,10 @@ header {
       height:350px;
     }
     .content-container {
+      .glyphicon {
+        opacity:.8;
+        font-size:4rem;
+      }
       position: absolute;
       top: 7.5rem;
       left: 0;
@@ -174,7 +186,7 @@ header {
     .lead {
       font-family: @font-sans-serif; 
       text-transform: uppercase;
-      font-size: 6rem;
+      font-size: 4rem;
       span {
         color:@primary-color;
       }
@@ -206,7 +218,7 @@ header {
 
 #footer {
   background:black;
-  min-height: 400px;
+  min-height: 200px;
   padding:4em 0;
   color:white;
   .org {
@@ -250,7 +262,7 @@ header {
   }
 }
 
-// media queries
+// media queries  
 @media (min-width: @screen-sm) {
   header {
     .navbar {
@@ -266,13 +278,13 @@ header {
           border:0;
         }
       }  
-    }
     .navbar-brand {
       width: 200px;
       height:100px;
-      padding:20px;
-    }
+      padding:10px 20px;
+    }      
   }
+}
 
   #home {
     .home-hero {
@@ -281,7 +293,7 @@ header {
         font-size: 2.5rem;
       }
       .lead {
-        
+        font-size: 5rem;
       }
       .section-image,
       .bg-image {
@@ -301,31 +313,36 @@ header {
     .home-hero {
       .content-container {
         font-size: 3.5rem;
+        .glyphicon {
+          font-size: 6rem;
+        }
       }
+    .lead {
+      font-size: 6rem;
     }
     .promos {
-        padding-top:2.5rem;
-      }
+      padding-top:2rem;
+    }
   }  
-  
+   } 
   .section-container {
     h1 {
       margin:4.5rem 0;
     }  
   }
-    header {
+  header {
     .navbar {
-      .vcard {
+      .navbar-text {
         position:static;
         right:auto;
-      }
-    }  
-  }
+      }     
+    } 
+  }    
 }
 
 @media (min-width: @screen-lg) {
-
   #home {
+      
     .home-hero {    
       .content-container {
         padding: 10rem;
@@ -339,7 +356,7 @@ header {
       .promos {
         div:first-child,
         div:last-child {
-          padding-top: 4rem;
+          padding-top: 3.5rem;
         }
       }
     }
