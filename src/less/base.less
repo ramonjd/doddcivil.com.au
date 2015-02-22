@@ -50,11 +50,13 @@ header {
     &:hover {
       background-color:rgba(0,0,0,0.9);
     }
-    
     .navbar-brand {
+      transition: all .4s ease-out;
       color:white;
       position:relative;
       padding:10px 15px;
+      display: inline-block;
+      overflow: hidden;
       img {
         height:100%;
       }
@@ -62,7 +64,32 @@ header {
         position:relative;
         top:-9999px;
       }
+      &:hover {
+        opacity: .7;
+      }
     }
+    .navbar-text {
+      margin-top:10px;
+      margin-bottom:10px;
+      color:#999;
+    }
+    .vcard {
+      position:absolute;
+      right:-9999px;      
+      .org {
+        color: #c1c1c1;
+      }
+      width:275px;
+      text-align: right;  
+      .title, address {
+        position:absolute;
+        right:-9999px;
+      }
+      .strap {
+        position:static;
+        right:auto; 
+      }
+    } 
     
     .navbar-nav {
       margin-top:0;
@@ -75,7 +102,6 @@ header {
         background-color:white;
         }
       } 
-      
       li.active > a {
         color:black;
         background-color:white;
@@ -89,11 +115,11 @@ header {
   position:relative;
   h1 {
     font-size: 4.5rem;
-    margin:4.5rem 0;
+    margin:4.5rem 0 1rem 0;
     letter-spacing: .2rem;
   }
   .to-top {
-    margin:2rem 0;
+    margin:2rem;
     font-family: @font-sans-serif;
     a {
       text-decoration: none;
@@ -101,6 +127,13 @@ header {
       text-transform: uppercase;
     }
   }
+  
+  .home-content, .about-content, .contact-content {
+    p {
+      font-size:2rem;
+    }
+  }
+  
 }
 
 .section-image {
@@ -126,7 +159,7 @@ header {
     color: white;
     .section-image,
     .bg-image {
-      height:400px;
+      height:350px;
     }
     .content-container {
       position: absolute;
@@ -135,8 +168,8 @@ header {
       width: 100%;
       height: 85%;
       z-index: 2;
-      padding: 10rem;
-      font-size: 5.5rem;
+      padding: 5rem;
+      font-size: 3rem;
     }
     .lead {
       font-family: @font-sans-serif; 
@@ -147,14 +180,10 @@ header {
       }
     }
     .promos {
-      padding-top:4.5rem;
-      div:first-child,
-      div:last-child {
-        padding-top:6.5rem;
-      }
+      position:absolute;
+      right:-9999px;
     }
   }
-  
   .home-content {
     padding:4rem 0;
   }
@@ -179,11 +208,49 @@ header {
   background:black;
   min-height: 400px;
   padding:4em 0;
+  color:white;
+  .org {
+    display:inline-block;
+    margin-right:10px;
+    a {
+      color:white;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+// modules
+
+.vcard {
+  .org {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .title {
+    font-style: italic;
+  }
+  .tel, .email {
+    display: inline-block;
+    padding-left:10px;
+  }
+  address {
+    display: block;
+    span, abbr {
+      display:inline-block;
+      margin-right:.7rem;
+    }
+    abbr {
+      border:0;
+    }
+    .country-name, .locality {
+      display: block;
+    }
+  }
 }
 
 // media queries
-
-
 @media (min-width: @screen-sm) {
   header {
     .navbar {
@@ -200,7 +267,6 @@ header {
         }
       }  
     }
-    
     .navbar-brand {
       width: 200px;
       height:100px;
@@ -210,21 +276,71 @@ header {
 
   #home {
     .home-hero {
+      .content-container {
+        padding: 6rem;
+        font-size: 2.5rem;
+      }
+      .lead {
+        
+      }
       .section-image,
       .bg-image {
         height:600px;
       }
+      .promos {
+        position:static;
+        right:auto; 
+      }
     }
+  }
+}
+
+@media (min-width: @screen-md) {
+  
+  #home {
+    .home-hero {
+      .content-container {
+        font-size: 3.5rem;
+      }
+    }
+    .promos {
+        padding-top:2.5rem;
+      }
+  }  
+  
+  .section-container {
+    h1 {
+      margin:4.5rem 0;
+    }  
+  }
+    header {
+    .navbar {
+      .vcard {
+        position:static;
+        right:auto;
+      }
+    }  
   }
 }
 
 @media (min-width: @screen-lg) {
 
   #home {
-    .home-hero {
+    .home-hero {    
+      .content-container {
+        padding: 10rem;
+      }
+      .lead {
+        font-size: 7rem;
+      }
       .section-image,
       .bg-image {
-        height:900px;
+      }
+      .promos {
+        div:first-child,
+        div:last-child {
+          padding-top: 4rem;
+        }
       }
     }
   }

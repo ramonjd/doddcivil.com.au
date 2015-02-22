@@ -4,14 +4,18 @@ section.services-content.container
       h1= services.title
   div.row.slide-images.clearfix
     div.col-md-4
-      img.img-rounded.img-responsive(alt='', src='http://placekitten.com/g/350/310')
+      img.img-rounded.img-responsive(alt='', src='img/grafton-shopping-world.jpg')
     div.col-md-4
-      img.img-circle.img-responsive(alt='', src='http://placekitten.com/g/350/310')
+      img.img-rounded.img-responsive(alt='', src='img/compaction-of-old-tributory.jpg')
     div.col-md-4
-      img.img-rounded.img-responsive(alt='', src='http://placekitten.com/g/350/310')
+      img.img-rounded.img-responsive(alt='', src='img/road-construction.jpg')
   
   div.row
     div.col-md-12
+      each item in services.services
+        div.well= item
+      
+    //
       div.panel-group#accordion(role='tablist', aria-multiselectable='true')
         div.panel.panel-default
           div.panel-heading#panel-heading-one(role='tab')

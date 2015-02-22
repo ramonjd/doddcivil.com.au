@@ -174,6 +174,9 @@ module.exports = (grunt)->
       html:
         files: 'src/jade/*.jade'
         tasks: ['jade']
+      locals:
+        files: 'config/locals.json'
+        tasks: ['jade']
       coffee:
         files: 'src/coffee/*.coffee'
         tasks: ['coffeelint', 'browserify']

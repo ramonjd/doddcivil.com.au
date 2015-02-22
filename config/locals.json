@@ -4,6 +4,9 @@
     "top" : {
       "label" : "To top",
       "link" : "#home"
+    },
+    "address" : {
+    
     }
   },
   
@@ -30,21 +33,49 @@
   
   "home" : {
     "hero" : {
-      "title" : "Dodd <span>Civil</span> Consultancy" 
+      "title" : "Dodd <span>Civil</span> Consultancy",
+      "promos" : [
+        {
+         "icon" : "leaf",
+          "label" : "Comprehensive service"
+        },
+        {
+         "icon" : "wrench",
+          "label" : "Quality and delivery"
+        },
+        {
+         "icon" : "tasks",
+          "label" : "20 years of experience"
+        }
+      ]
     },
     "title" : "Home",
-    "heroImage" : "_bg_home_dummy.jpg"
+    "heroImage" : "splash-bridge.jpg",
+    "paragraph" : {
+      "left" : "<strong>Dodd Civil Consultancy</strong> is a broad-service civil engineering firm serving the mid-north coast and beyond.",
+      "right" : "We provide expertise, advice and project management for <strong>residential and commercial site developments, earthworks, roads, risk assessment</strong>, as well as <strong>bid and tender documentation</strong>."
+    }
   },
   
   "about" : {
-    "title" : "About"
+    "title" : "About us"
   },
   
   "services" : {
-    "title" : "Services"
+    "title" : "Services",
+    "services" : [
+      "Project Programming and Scheduling",
+      "Project Cost Estimating",
+      "Bid and Tender Documentation",
+      "Construction Management",
+      "Contract and Procurement Management",
+      "Commercial and Claims Management",
+      "Project Control System Establishment",
+      "Project Support Services"
+    ]
   },
   
   "contact" : {
-    "title" : "Contact"
+    "title" : "Contact us"
   }
 }

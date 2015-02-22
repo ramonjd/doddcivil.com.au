@@ -4,22 +4,14 @@ section.home-hero.clearfix
   div.content-container.text-center.center-block
     p.lead!= home.hero.title
     div.row.promos
-      div.col-md-4
-        div.glyphicon.glyphicon-leaf(aria-hidden='true')
-        p 23,455 Test
-      div.col-md-4
-        div.glyphicon.glyphicon-wrench(aria-hidden='true')
-        p Test something
-      div.col-md-4
-        div.glyphicon.glyphicon-tasks(aria-hidden='true')
-        p Oh, another...
-        
+      each item in home.hero.promos
+        div.col-md-4
+          div(class='glyphicon glyphicon-'+ item.icon, aria-hidden='true')
+          p= item.label
 section.home-content.clearfix
   div.container
     div.row
       div.col-md-6.col-xs-12
-        p.
-          Nulla pharetra, elit quis interdum dapibus, justo urna dignissim tellus, a tempus lectus est vel felis. Vestibulum nunc ante, bibendum nec risus sed, mattis convallis magna. Suspendisse non aliquet tellus.
+        p!= home.paragraph.left
       div.col-md-6.col-xs-12
-        p.
-          Nulla pharetra, elit quis interdum dapibus, justo urna dignissim tellus, a tempus lectus est vel felis. Vestibulum nunc ante, bibendum nec risus sed, mattis convallis magna. Suspendisse non aliquet tellus.
+        p!= home.paragraph.right
