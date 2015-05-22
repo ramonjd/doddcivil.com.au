@@ -8,3 +8,4 @@ src/fonts
 tests/*.js
 src/*.html
 src/*.php
+*.idea
